@@ -1,8 +1,23 @@
 <h1>id: <%= @task.id %> のメッセージ詳細ページ</h1>
 
-<p>ステータス: <%= @task.status %></p>
-<p>タスク: <%= @task.content %></p>
+<div class="row">
+  <div class="col-10">
+    <table class="table table-bordered ">
+    <tr>
+        <th style="width:20%">id</th>
+        <td><%= @task.id %></td>
+    </tr>
+    <tr>
+        <th style="width:20%">ステータス</th>
+        <td><%= @task.status %></td>
+    </tr>
+    <tr>
+        <th style="width:20%">タスク</th>
+        <td><%= @task.content %></td>
+    </tr>
+    </table>
+  </div>
+</div>
 
-<%= link_to '一覧に戻る', tasks_path %>
-<%= link_to 'このタスクを編集する', edit_task_path(@task) %>
-<%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+<%= link_to 'このタスクを編集する', edit_task_path(@task), class: 'btn btn-info' %>
+<%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
